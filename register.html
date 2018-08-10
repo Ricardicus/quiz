@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<body>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">
+<style>
+input {
+	border-radius: 10px;
+	border: 2px solid grey;
+}
+</style>
+</head>
+<script type="text/javascript">
+
+Date.prototype.addHours= function(h){
+    this.setHours(this.getHours()+h);
+    return this;
+}
+
+function set_cookie(str) {
+	var d = new Date();
+
+	d.addHours(3);
+
+	document.cookie = "username= "+str+"; expires=" + d;
+
+}
+
+function load_doc() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange=function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("demo").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "/update", true);
+  xhttp.send();
+}
+
+function register() {
+	var user = document.getElementById("username").value;
+
+	set_cookie(user);
+	
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange=function() {
+		if (this.readyState == 4 && this.status == 200) {
+			var data = JSON.parse(this.responseText);
+
+			document.getElementById("demo").innerHTML = this.responseText;
+		}
+	};
+	xhttp.open("GET", "/register", true);
+	xhttp.send(); 
+}
+
+window.onload = function(e) {
+	// Fill in? 
+
+	// Test
+	//load_guess("/xAee72hb2WAK2m4bVe72");
+}
+
+</script>
+<h>hej</h>
+<input id="username"></input><button onclick="register()">register</button>
+<pre id="demo">
+</pre>
+</body>
+</html>

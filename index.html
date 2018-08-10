@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<body>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+<style>
+input {
+	border-radius: 10px;
+	border: 2px solid grey;
+}
+
+body {
+	font-size: 30px;
+	font-family: 'Open Sans', sans-serif;
+}
+
+button {
+	width: 200px;
+	height: 60px;
+	border-radius: 30px;
+ 	font-size: 30px;
+}
+input[type="radio"]{
+    display:inline-block;
+    width:19px;
+    height:19px;
+    margin:-2px 10px 0 0;
+    vertical-align:middle;
+    cursor:pointer;
+}
+
+div.error-header {
+	background-color: #ff0000;
+	width: 100%;
+	border-radius: 5px;
+	color: white;
+}
+
+div.positive-header {
+	background-color: #00ff00;
+	width: 100%;
+	border-radius: 5px;
+	color: white;
+}
+
+td.quiz-question {
+	font-size: 0.5em;
+	width: 450px;
+}
+
+table thead th { border-bottom: 1px solid #000; }
+
+</style>
+</head>
+<script type="text/javascript">
+
+Date.prototype.addHours= function(h){
+    this.setHours(this.getHours()+h);
+    return this;
+}
+
+var last_timeout;
+
+function write_positive_msg(msg, timeout=20) {
+
+	// Hide error header
+	document.getElementById("error-h").style.display = "none";
+
+	// Show positive header
+	document.getElementById("positive-msg").innerHTML = msg;
+	document.getElementById("positive-h").style.display = "inherit";
+
+	// Hide the positive-header after timeout seconds
+	clearTimeout(last_timeout);
+	last_timeout = setTimeout(function(){
+		document.getElementById("positive-h").style.display = "none";
+
+	}, timeout * 1000 );
+}
+
+function write_error_msg(msg, timeout=20) {
+
+	// Hide positive header
+	document.getElementById("positive-h").style.display = "none";
+
+	document.getElementById("error-msg").innerHTML = msg;
+	document.getElementById("error-h").style.display = "inherit";
+
+	// Hide the error-header after timeout seconds
+	clearTimeout(last_timeout);
+	last_timeout = setTimeout(function(){
+		document.getElementById("error-h").style.display = "none";
+
+	}, timeout * 1000 );
+
+} 
+
+function set_cookie(str) {
+	var d = new Date();
+
+	d.addHours(2);
+
+	document.cookie = "username= "+str+"; expires=" + d;
+
+}
+
+/* Hiding all the div.meny-div elements */
+function hide_all_pages(except){
+    var menues = document.getElementsByClassName("meny-div");
+    for ( var i = 0; i < menues.length; i++ ) {
+    	menues[i].style.display = "none";
+    } 
+
+    if ( typeof except !== "undefined" ){
+    	try {
+			document.getElementById(except).style.display = "inherit";
+    	} catch ( e ) {;}
+    }
+}
+
+/* Rendering the register page */
+function load_reg(intial) {
+
+	console.log("loag reg: " + intial);
+	hide_all_pages("register-div");	
+
+	if ( intial == true ) {
+
+		document.getElementById("register-h").innerHTML = "Registrera ditt lag (och kom på ett bra lagnamn)!";
+		document.getElementById("register-first-time").style.display = "inherit";
+
+	} else {
+
+		document.getElementById("register-h").innerHTML = "Så, ut och lek nu :)";
+		document.getElementById("register-first-time").style.display = "none";
+
+	}
+
+}
+
+/* Rendering the quiz page */
+function load_quiz(response) {
+
+	var question = response["question"];
+	var one = response["1"];
+	var X = response["X"];
+	var two = response["2"];
+	var question_id = response["question_id"]
+
+	console.log("loag quiz: " + question + ", 1:" + one + ", X: " + X + ", 2: " + two);
+
+	hide_all_pages("question-div");
+
+	document.getElementById("question-p").innerHTML = question;
+	document.getElementById("question-p").setAttribute("question_id", question_id);
+
+	document.getElementById("1-p").innerHTML = one;
+	document.getElementById("X-p").innerHTML = X;
+	document.getElementById("2-p").innerHTML = two;
+
+	if ( typeof response["image"] !== "undefined" ) {
+		document.getElementById("question-img").setAttribute("src", response["image"]);
+		document.getElementById("question-img").style.display = "inherit";
+	} else {
+		document.getElementById("question-img").style.display = "none";
+	}
+}
+
+function update() {
+	var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange=function() {
+		if (this.readyState == 4 && this.status == 200) {
+		// document.getElementById("demo").innerHTML = this.responseText;
+
+		var response = JSON.parse(this.responseText);
+
+		var status = response["status"];
+
+		if ( status == "OK") {
+			// The server is not complaining about anything, we're good to go
+
+			if ( typeof response["message"] !== "undefined" ) {
+
+				write_positive_msg(response["message"]);
+
+			}
+
+			if ( typeof response["state"] !== "undefined" ) {
+				// Checking at what stage the user is in
+
+				if ( response["state"] == "REG" ) {
+					load_reg();
+				} else if ( response["state"] == "QUIZ" ) {
+					load_quiz(response);
+				} else if ( response["state"] == "HIGHSCORE" ) {
+
+					if ( typeof response["highscore"] != "undefined" ) {
+
+						var hs = response["highscore"];
+
+						var hs_vector = [];
+
+						var html = "";
+
+						for ( key in hs ) {
+							hs_vector.push({"name": key , "score" : hs[key]});
+						}
+
+
+						hs_vector.sort(function ( a, b ) {
+							return a["score"] - b["score"];
+						});
+
+
+						for ( var q = 0; q < hs_vector.length; q++ ) {
+
+							html += "" + (q+1) + "." + "	";
+							html += hs_vector[q]["name"] + " (" + hs_vector[q]["score"] + " rätt)\n";
+
+						}
+
+						html += "";
+
+						console.log("HTML: " + html);
+
+						document.getElementById("highscore-pre").innerHTML = html;
+
+						document.getElementById("highscore-div").style.display = "inherit";
+
+						if ( typeof response["quiz-summary"] != "undefined" ) {
+		
+							var tbody_html = "";
+
+							for ( quiz_question in response["quiz-summary"] ) {
+
+								tbody_html += "<tr>";
+								
+								tbody_html += "<td class='quiz-question'><center>";
+								tbody_html += response["quiz-summary"][quiz_question]["question"];
+								tbody_html += "</center></td>";
+
+								tbody_html += "<td class='quiz-question'><center>";
+								tbody_html += response["quiz-summary"][quiz_question]["answer"];
+								tbody_html += "</center></td>";
+
+								tbody_html += "<td class='quiz-question'><center>";
+								tbody_html += response["quiz-summary"][quiz_question]["correct"];
+								tbody_html += "</center></td>";
+
+								tbody_html += "</tr>";
+
+							}
+
+							document.getElementById("quiz-summary-tbody").innerHTML = tbody_html;
+
+							document.getElementById("quiz-summary-table").style.display = "inherit";
+						} else {
+							document.getElementById("quiz-summary-table").style.display = "none";
+						}
+
+					}
+
+
+				}
+			}
+
+		} else if ( status == "ERROR" ) {
+
+			if ( typeof response["state"] !== undefined && response["state"] == "NOREG" ) {
+
+				load_reg(true);
+
+			} else {
+
+				if ( typeof response["message"] !== "undefined" ) {
+
+					write_error_msg(response["message"]);
+
+				}
+			}
+
+		}
+
+
+		}
+	};
+	xhttp.open("GET", "/update", true);
+	xhttp.send();
+}
+
+function guess() {
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", '/guess', true);
+
+	var question = document.getElementById("question-p").getAttribute("question_id");
+	var answers = document.getElementsByName("quiz");
+	var answer = "";
+
+	for ( var i = 0; i < answers.length; i++ ){
+
+		if ( answers[i].checked ) {
+
+			answer = answers[i].value;
+
+		}
+
+	}
+
+	//Send the proper header information along with the request
+	xhr.setRequestHeader("Content-Type", "application/json");
+
+	xhr.onreadystatechange = function() {//Call a function when the state changes.
+		if(this.readyState == XMLHttpRequest.DONE && this.status == 200) {
+			// Request finished. Do processing here.
+			//document.getElementById("demo").innerHTML = this.responseText;
+			var data = JSON.parse(this.responseText);
+
+			if ( data["status"] == "OK" ) {
+
+				if ( typeof data["message"] !== "undefined" ) {
+
+					write_positive_msg(data["message"]);
+
+				}
+
+			} else {
+
+				if ( typeof data["message"] !== "undefined" ) {
+
+					write_error_msg(data["message"]);
+
+				}
+
+			}
+
+		}
+	}
+	xhr.send('{"question":"' + question + '", "answer":"' + answer + '"}'); 
+}
+
+function load_guess(link) {
+	// /xAee72hb2WAK2m4bVe72
+	var user = document.getElementById("username").value;
+
+	set_cookie(user);
+	
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange=function() {
+		if (this.readyState == 4 && this.status == 200) {
+			console.log(this);
+			//document.getElementById("demo").innerHTML = this.responseText;
+			
+			var data = JSON.parse(this.responseText);
+			var question = data["question"];
+			var alternative1 = data["1"];
+			var alternativeX = data["X"];
+			var alternative2 = data["2"];
+
+			document.getElementById("question-p").innerHTML = question;
+			document.getElementById("1-p").innerHTML = alternative1;
+			document.getElementById("X-p").innerHTML = alternativeX;
+			document.getElementById("2-p").innerHTML = alternative2;
+
+			document.getElementById("question-div").style.display = "inherit";
+		}
+	};
+	xhttp.open("GET", link, true);
+	xhttp.send(); 
+
+
+}
+
+function register() {
+	var user = document.getElementById("username").value;
+
+	set_cookie(user);
+	
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange=function() {
+		if (this.readyState == 4 && this.status == 200) {
+			var data = JSON.parse(this.responseText);
+
+			//document.getElementById("demo").innerHTML = this.responseText;
+
+			location.reload();
+		}
+	};
+	xhttp.open("GET", "/register", true);
+	xhttp.send(); 
+}
+
+window.onload = function(e) {
+	// Fill in? 
+
+	// Test
+	//load_guess("/xAee72hb2WAK2m4bVe72");
+
+	// Updating the page
+	update();
+}
+
+</script>
+<div class="error-header" id="error-h" style="display:none;">
+	<center>
+		<p id="error-msg"></p>
+	</center>
+</div>
+<div class="positive-header" id="positive-h" style="display:none;">
+	<center>
+	<p id="positive-msg"></p>
+	</center>
+</div>	
+<!--
+<h>hej</h>
+<input id="username"></input><button onclick="register()">register</button><button onclick="update()">update</button><button onclick='guess("0", "1")'>guess</button>
+<pre id="demo">
+</pre> -->
+<div id="register-div" class="meny-div" style="display:none;">
+	<center>
+	<br><br>
+		<h id="register-h"></h>
+		<br><br>
+		<div id="register-first-time" style="display:none;">
+			Lagnamn: <input id="username"></input><br><br><button onclick="register()">Registrera</button>
+		</div>
+	</center>
+</div>
+<div id="question-div" style="display:none;" class="meny-div">
+	<center>
+	<p id="question-p"></p>
+	<table>
+	<tr>
+	<td>
+		<table>
+		<tr>
+		<td>1:</td><td><input type='radio' name='quiz' value="1"></td><td><p id="1-p"></p></td>
+		</tr>
+		<tr>
+		<td>X:</td><td><input type='radio' name='quiz' value="X"></td><td><p id="X-p"></p></td>
+		</tr>
+		<tr>
+		<td>2:</td><td><input type='radio' name='quiz' value="2"></td><td><p id="2-p"></p></td>
+		</tr>
+		</table>
+	</td>
+	</tr>
+	</table>
+	<button onclick="guess()">Gissa</button>
+	<br><br>
+	<img id="question-img" src="" style="display:none">
+	</center>
+</div>
+
+<div id="highscore-div" style="display:none;" class="meny-div">
+<center>
+<pre id="highscore-pre">
+</pre>
+<div>
+<table id="quiz-summary-table" cellspacing="20" style="display:none">
+<thead>
+<tr>
+<th>Fråga</th>
+<th>Svar</th>
+<th>Korrekt</th>
+</tr>
+</thead>
+<hline>
+<tbody id="quiz-summary-tbody">
+</tbody>
+</table>
+</div>
+</center>
+</div>
+</body>
+</html>
