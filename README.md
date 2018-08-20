@@ -9,7 +9,7 @@ use this app at your own party!
 
 # Install
 
-Install <href a="https://nodejs.org/en/">Node.js</href> and launch the app with: 
+Install [Node.js](https://nodejs.org/en/) and launch the app with: 
 <pre>
 node app.js
 </pre>
@@ -20,7 +20,4 @@ const hostname = 'insert your IP';
 const port = 'insert your port';
 </pre>
 
-Configure your router, if you are using a NAT router, to [forward all requests to your machine]("https://en.wikipedia.org/wiki/Port_forwarding").
-
-http://github.com - automatic!
-[GitHub](http://github.com)
+Configure your router, if you are using a NAT router, to [forward all requests](https://en.wikipedia.org/wiki/Port_forwarding) to your machine. This is typically done using the router interface after logging in.
