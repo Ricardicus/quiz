@@ -15,7 +15,11 @@ answer["status"] = "OK";
 answer["state"] = "QUIZ";
 answer["message"] = user + " har hittat en quiz-fråga!";
 </pre>
-, you may here change the answer["message"] field, it is what is printed out, to something like "user + has found a quiz-question!".  
+, you may here change the answer["message"] field, it is what is printed out, to something like:
+<pre>
+...
+answer["message"] = user + " has found a quiz-question!";
+</pre>
 
 # Install
 
