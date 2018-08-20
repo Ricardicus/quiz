@@ -21,3 +21,6 @@ const port = 'insert your port';
 </pre>
 
 Configure your router, if you are using a NAT router, to [forward all requests to your machine]("https://en.wikipedia.org/wiki/Port_forwarding").
+
+http://github.com - automatic!
+[GitHub](http://github.com)
