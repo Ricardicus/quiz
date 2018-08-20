@@ -1,6 +1,6 @@
 # About
 
-This is a Node.js app made for a quiz-walk at a party. It was made for a 25st birtday party where 16 guests participated.
+This is a Node.js app made for a quiz-walk at a party. It was made for my 25st birtday party.
 
 # Modify 
 
