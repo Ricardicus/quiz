@@ -3,23 +3,34 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+<!-- font-family: Garamond,Baskerville,Baskerville Old Face,Hoefler Text,Times New Roman,serif;  -->
 <style>
 input {
 	border-radius: 10px;
 	border: 2px solid grey;
+	font-family: 'Oswald', sans-serif;
+	font-size: 40px;
 }
 
 body {
-	font-size: 30px;
-	font-family: 'Open Sans', sans-serif;
+	font-size: 60px;
+	background: linear-gradient(#568456, white);
+	height: 1000px;
+	width: 100%;
+	background-repeat: no-repeat;	
+	font-family: 'Open Sans Condensed', sans-serif;
 }
 
 button {
-	width: 200px;
-	height: 60px;
 	border-radius: 30px;
- 	font-size: 30px;
+ 	font-size: 60px;
+ 	font-family: 'Oswald', sans-serif;
+ 	border: 8px solid black;
+ 	padding: 2px 20px 10px 20px;
 }
+
 input[type="radio"]{
     display:inline-block;
     width:19px;
@@ -27,6 +38,8 @@ input[type="radio"]{
     margin:-2px 10px 0 0;
     vertical-align:middle;
     cursor:pointer;
+
+    transform: scale(2); 
 }
 
 div.error-header {
@@ -37,15 +50,31 @@ div.error-header {
 }
 
 div.positive-header {
-	background-color: #00ff00;
 	width: 100%;
 	border-radius: 5px;
-	color: white;
+	color: black;
+	font-family: 'Oswald', sans-serif;
+
 }
 
 td.quiz-question {
-	font-size: 0.5em;
+	font-size: 0.7em;
 	width: 450px;
+}
+
+img {
+	border-radius: 10px;
+	width: 800px;
+}
+
+img.quiz-img-big {
+	width: 400px;
+	height: 400px;
+}
+
+img.quiz-img-small {
+	width: 200px;
+	height: 200px;
 }
 
 table thead th { border-bottom: 1px solid #000; }
@@ -126,12 +155,12 @@ function load_reg(intial) {
 
 	if ( intial == true ) {
 
-		document.getElementById("register-h").innerHTML = "Registrera ditt lag (och kom på ett bra lagnamn)!";
+		document.getElementById("register-h").innerHTML = "Registrera ert lag";
 		document.getElementById("register-first-time").style.display = "inherit";
 
 	} else {
 
-		document.getElementById("register-h").innerHTML = "Så, ut och lek nu :)";
+		document.getElementById("register-h").innerHTML = "Ert lag är registrerat.";
 		document.getElementById("register-first-time").style.display = "none";
 
 	}
@@ -154,9 +183,23 @@ function load_quiz(response) {
 	document.getElementById("question-p").innerHTML = question;
 	document.getElementById("question-p").setAttribute("question_id", question_id);
 
-	document.getElementById("1-p").innerHTML = one;
-	document.getElementById("X-p").innerHTML = X;
-	document.getElementById("2-p").innerHTML = two;
+	if ( one.startsWith("http") ) {
+		document.getElementById("1-p").innerHTML = "<img src='" + one + "' class='quiz-img-big'>";
+	} else {
+		document.getElementById("1-p").innerHTML = one;
+	}
+
+	if ( X.startsWith("http") ) {
+		document.getElementById("X-p").innerHTML = "<img src='" + X + "' class='quiz-img-big'>";
+	} else {
+		document.getElementById("X-p").innerHTML = X;
+	}
+
+	if ( two.startsWith("http") ) {
+		document.getElementById("2-p").innerHTML = "<img src='" + two + "' class='quiz-img-big'>";
+	} else {
+		document.getElementById("2-p").innerHTML = two;
+	}
 
 	if ( typeof response["image"] !== "undefined" ) {
 		document.getElementById("question-img").setAttribute("src", response["image"]);
@@ -208,7 +251,7 @@ function update() {
 
 
 						hs_vector.sort(function ( a, b ) {
-							return a["score"] - b["score"];
+							return b["score"] - a["score"];
 						});
 
 
@@ -220,8 +263,6 @@ function update() {
 						}
 
 						html += "";
-
-						console.log("HTML: " + html);
 
 						document.getElementById("highscore-pre").innerHTML = html;
 
@@ -236,15 +277,33 @@ function update() {
 								tbody_html += "<tr>";
 								
 								tbody_html += "<td class='quiz-question'><center>";
-								tbody_html += response["quiz-summary"][quiz_question]["question"];
+
+								var question_summary = response["quiz-summary"][quiz_question]["question"];
+
+								if ( question_summary.split(". ").length > 1 ) {
+									question_summary = question_summary.split(". ")[question_summary.split(". ").length-1];
+								}
+								tbody_html += question_summary;
 								tbody_html += "</center></td>";
 
 								tbody_html += "<td class='quiz-question'><center>";
-								tbody_html += response["quiz-summary"][quiz_question]["answer"];
+
+								if (response["quiz-summary"][quiz_question]["answer"].startsWith("http") ) {
+									tbody_html += "<img class='quiz-img-small' src='" + response["quiz-summary"][quiz_question]["answer"] + "'>";
+								} else {
+									tbody_html += response["quiz-summary"][quiz_question]["answer"];
+								}
+								
 								tbody_html += "</center></td>";
 
 								tbody_html += "<td class='quiz-question'><center>";
-								tbody_html += response["quiz-summary"][quiz_question]["correct"];
+
+								if (response["quiz-summary"][quiz_question]["correct"].startsWith("http") ) {
+									tbody_html += "<img class='quiz-img-small' src='" + response["quiz-summary"][quiz_question]["correct"] + "'>";
+								} else {
+									tbody_html += response["quiz-summary"][quiz_question]["correct"];
+								}
+
 								tbody_html += "</center></td>";
 
 								tbody_html += "</tr>";
@@ -306,6 +365,11 @@ function guess() {
 
 	}
 
+	if ( answer.length == 0 ) {
+		alert("Kryssa i ett alternativ först!");
+		return;
+	}
+
 	//Send the proper header information along with the request
 	xhr.setRequestHeader("Content-Type", "application/json");
 
@@ -323,6 +387,8 @@ function guess() {
 
 				}
 
+				document.getElementById("question-inner-div").style.display = "none";
+
 			} else {
 
 				if ( typeof data["message"] !== "undefined" ) {
@@ -338,42 +404,29 @@ function guess() {
 	xhr.send('{"question":"' + question + '", "answer":"' + answer + '"}'); 
 }
 
-function load_guess(link) {
-	// /xAee72hb2WAK2m4bVe72
-	var user = document.getElementById("username").value;
-
-	set_cookie(user);
-	
-	var xhttp = new XMLHttpRequest();
-	xhttp.onreadystatechange=function() {
-		if (this.readyState == 4 && this.status == 200) {
-			console.log(this);
-			//document.getElementById("demo").innerHTML = this.responseText;
-			
-			var data = JSON.parse(this.responseText);
-			var question = data["question"];
-			var alternative1 = data["1"];
-			var alternativeX = data["X"];
-			var alternative2 = data["2"];
-
-			document.getElementById("question-p").innerHTML = question;
-			document.getElementById("1-p").innerHTML = alternative1;
-			document.getElementById("X-p").innerHTML = alternativeX;
-			document.getElementById("2-p").innerHTML = alternative2;
-
-			document.getElementById("question-div").style.display = "inherit";
-		}
-	};
-	xhttp.open("GET", link, true);
-	xhttp.send(); 
-
-
-}
-
 function register() {
 	var user = document.getElementById("username").value;
 
-	set_cookie(user);
+	if ( user.length == 0 ) {
+		alert("Ange ert lagnamn.");
+		return;
+	}
+
+	var ascii = /^[ -~]+$/;
+
+	if ( !ascii.test( user ) ) {
+	  // string has non-ascii characters
+
+	  alert("Tyvärr funkar inte '" + user + "' som lagnamn på alla telefoner. Det får inte vara några 'å', 'ä', eller 'ö' :(");
+	  return;
+	}	
+
+	try {
+		set_cookie(user);
+	} catch (e) {
+		alert("Misslyckades!");
+	}
+
 	
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange=function() {
@@ -427,26 +480,28 @@ window.onload = function(e) {
 </div>
 <div id="question-div" style="display:none;" class="meny-div">
 	<center>
+	<div id="question-inner-div">
 	<p id="question-p"></p>
 	<table>
 	<tr>
 	<td>
 		<table>
 		<tr>
-		<td>1:</td><td><input type='radio' name='quiz' value="1"></td><td><p id="1-p"></p></td>
+		<td><input type='radio' name='quiz' value="1"></td><td style="padding-right:20px">1. </td><td><p id="1-p"></p></td>
 		</tr>
 		<tr>
-		<td>X:</td><td><input type='radio' name='quiz' value="X"></td><td><p id="X-p"></p></td>
+		<td><input type='radio' name='quiz' value="X"></td><td style="padding-right:20px">X. </td><td><p id="X-p"></p></td>
 		</tr>
 		<tr>
-		<td>2:</td><td><input type='radio' name='quiz' value="2"></td><td><p id="2-p"></p></td>
+		<td><input type='radio' name='quiz' value="2"></td><td style="padding-right:20px">2. </td><td><p id="2-p"></p></td>
 		</tr>
 		</table>
 	</td>
 	</tr>
 	</table>
-	<button onclick="guess()">Gissa</button>
+	<button onclick="guess()">Svara</button>
 	<br><br>
+	</div>
 	<img id="question-img" src="" style="display:none">
 	</center>
 </div>
@@ -460,7 +515,7 @@ window.onload = function(e) {
 <thead>
 <tr>
 <th>Fråga</th>
-<th>Svar</th>
+<th>Ert svar</th>
 <th>Korrekt</th>
 </tr>
 </thead>

@@ -15,8 +15,8 @@ var users_progress = {};
 // the variable "quiz" holds all the questions
 eval(fs.readFileSync('quizz.js')+'');
 
-// 192.168.72.217
-const hostname = '127.0.0.1';
+// local: 192.168.72.217, 192.168.1.133 , WAN: 81.170.178.55    , 83.209.51.52
+const hostname = '192.168.72.217';
 const port = 3002;
 
 function parse_cookies (request) {
@@ -25,7 +25,11 @@ function parse_cookies (request) {
 
 	rc && rc.split(';').forEach(function( cookie ) {
 		var parts = cookie.split('=');
-		map[parts.shift().trim()] = decodeURI(parts.join('='));
+		try {
+			map[parts.shift().trim()] = decodeURIComponent(escape(decodeURI(parts.join('='))));
+		} catch( e) {
+			map[parts.shift().trim()] = parts.join('=');
+		}
 	});
 
 	return map;
@@ -274,7 +278,7 @@ const server = http.createServer((req, res) => {
 
 				answer["status"] = "OK";
 				answer["state"] = "HIGHSCORE";
-				answer["message"] = "Här presenteras resultaten. Alla har varit jätteduktiga!";
+				answer["message"] = "Resultat";
 				answer["highscore"] = status_report;
 
 				var show_results = has_finished(user);
@@ -353,7 +357,7 @@ const server = http.createServer((req, res) => {
 							usr["answers"]["" + question] = answer;
 
 							res_answer["status"] = "OK";
-							res_answer["message"] = "Ok " + cookies["username"] + ", ni har svarat alternativ: " + answer + " på denna fråga! För att ändra svaret, gissa bara igen.";
+							res_answer["message"] = "Ni har svarat alternativ: " + answer + ". För att ändra svaret, uppdatera sidan.";
 
 							res.writeHead(200, {
 								"Content-Type": "application/json; charset=utf-8",
@@ -432,7 +436,7 @@ server.listen(port, hostname, () => {
 	render_the_urls();
 	console.log("URLs:");
 	for ( var i = 0; i<quiz.length; i++ ) {
-		console.log("q" + (i+1) + `: http://${hostname}:${port}` + quiz[i]["url"]);
+		console.log(`http://${hostname}:${port}` + quiz[i]["url"]);
 	}
 
 
