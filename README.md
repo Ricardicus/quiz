@@ -20,4 +20,4 @@ const hostname = 'insert your IP';
 const port = 'insert your port';
 </pre>
 
-Configure your router, if you are using a NAT router, to [forward all requests to your machine](("https://en.wikipedia.org/wiki/Port_forwarding").
+Configure your router, if you are using a NAT router, to [forward all requests to your machine]("https://en.wikipedia.org/wiki/Port_forwarding").
