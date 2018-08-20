@@ -21,6 +21,8 @@ answer["message"] = user + " har hittat en quiz-fråga!";
 answer["message"] = user + " has found a quiz-question!";
 </pre>
 
+As for the rest, the comments and the code is basically written in english.
+
 # Install
 
 Install [Node.js](https://nodejs.org/en/) and launch the app with: 
