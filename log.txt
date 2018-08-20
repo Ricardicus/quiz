@@ -1,0 +1,702 @@
+Server running at http://192.168.72.217:3002/
+Setting up the URL mapping for each question.
+URLs:
+http://192.168.72.217:3002/6K2wfe2har2VtE2etr2A
+http://192.168.72.217:3002/3fPhbfKrAKR2VtE2mfKK
+http://192.168.72.217:3002/1taVPnWWVm7Petb2VK2h
+http://192.168.72.217:3002/kAKK2hb2rbFKWhEKAe2E
+http://192.168.72.217:3002/jfaPAe2a7KW2f26FbtZ7
+http://192.168.72.217:3002/1fmmb7K2VK2yAeASPK7V
+http://192.168.72.217:3002/Of2VKPe7aAe2w7b2WAe2
+/
+/update
+/register
+Added user: De femtio dalmatinerna
+/
+/update
+/update
+/
+/update
+/
+/update
+/register
+Added user: 2school4cool
+/
+/update
+/update
+/
+/update
+/
+/update
+/update
+/6K2wfe2har2VtE2etr2A
+/
+/update
+/guess
+user: De femtio dalmatinerna
+	score: 1/7
+user: 2school4cool
+	score: 0/7
+Team: De femtio dalmatinerna, answered: 2, on the question: 0
+/
+/favicon.ico
+/update
+/6K2wfe2har2VtE2etr2A
+/
+/update
+/register
+Added user: Lag syd
+/
+/update
+/guess
+user: De femtio dalmatinerna
+	score: 1/7
+user: 2school4cool
+	score: 0/7
+user: Lag syd
+	score: 0/7
+Team: 2school4cool, answered: 1, on the question: 0
+/
+/update
+/favicon.ico
+/
+/update
+/register
+Added user: Lag 4
+/
+/update
+/6K2wfe2har2VtE2etr2A
+/
+/update
+/3fPhbfKrAKR2VtE2mfKK
+/
+/3fPhbfKrAKR2VtE2mfKK
+/
+/update
+/favicon.ico
+/
+/update
+/update
+/
+/update
+/3fPhbfKrAKR2VtE2mfKK
+/
+/update
+/favicon.ico
+/3fPhbfKrAKR2VtE2mfKK
+/
+/update
+/1taVPnWWVm7Petb2VK2h
+/
+/update
+/guess
+user: De femtio dalmatinerna
+	score: 1/7
+user: 2school4cool
+	score: 0/7
+user: Lag syd
+	score: 0/7
+user: Lag 4
+	score: 0/7
+Team: Lag syd, answered: 1, on the question: 0
+/3fPhbfKrAKR2VtE2mfKK
+/
+/3fPhbfKrAKR2VtE2mfKK
+/
+/1taVPnWWVm7Petb2VK2h
+/
+/update
+/update
+/register
+Added user: 51 dalmatiner
+/
+/update
+/update
+/register
+Added user: Malinpaavstand
+/
+/update
+/1taVPnWWVm7Petb2VK2h
+/
+/update
+/
+/update
+/guess
+user: De femtio dalmatinerna
+	score: 1/7
+user: 2school4cool
+	score: 0/7
+user: Lag syd
+	score: 0/7
+user: Lag 4
+	score: 0/7
+user: 51 dalmatiner
+	score: 0/7
+user: Malinpaavstand
+	score: 0/7
+Team: 2school4cool, answered: X, on the question: 1
+/6K2wfe2har2VtE2etr2A
+/
+/update
+/1taVPnWWVm7Petb2VK2h
+/
+/update
+/guess
+user: De femtio dalmatinerna
+	score: 1/7
+user: 2school4cool
+	score: 1/7
+user: Lag syd
+	score: 0/7
+user: Lag 4
+	score: 0/7
+user: 51 dalmatiner
+	score: 0/7
+user: Malinpaavstand
+	score: 0/7
+Team: 2school4cool, answered: 1, on the question: 2
+/
+/favicon.ico
+/update
+/guess
+user: De femtio dalmatinerna
+	score: 1/7
+user: 2school4cool
+	score: 1/7
+user: Lag syd
+	score: 0/7
+user: Lag 4
+	score: 0/7
+user: 51 dalmatiner
+	score: 0/7
+user: Malinpaavstand
+	score: 0/7
+Team: Lag 4, answered: 1, on the question: 0
+/guess
+user: De femtio dalmatinerna
+	score: 1/7
+user: 2school4cool
+	score: 1/7
+user: Lag syd
+	score: 0/7
+user: Lag 4
+	score: 0/7
+user: 51 dalmatiner
+	score: 1/7
+user: Malinpaavstand
+	score: 0/7
+Team: 51 dalmatiner, answered: 1, on the question: 2
+/3fPhbfKrAKR2VtE2mfKK
+/
+/update
+/update
+/3fPhbfKrAKR2VtE2mfKK
+/
+/update
+/register
+Added user: 52 dalmatiner
+/
+/update
+/update
+/
+/update
+/update
+/3fPhbfKrAKR2VtE2mfKK
+/
+/update
+/3fPhbfKrAKR2VtE2mfKK
+/
+/update
+/guess
+user: De femtio dalmatinerna
+	score: 1/7
+user: 2school4cool
+	score: 1/7
+user: Lag syd
+	score: 0/7
+user: Lag 4
+	score: 0/7
+user: 51 dalmatiner
+	score: 1/7
+user: Malinpaavstand
+	score: 0/7
+user: 52 dalmatiner
+	score: 0/7
+Team: 52 dalmatiner, answered: 1, on the question: 1
+/3fPhbfKrAKR2VtE2mfKK
+/
+/update
+/favicon.ico
+/3fPhbfKrAKR2VtE2mfKK
+/
+/update
+/kAKK2hb2rbFKWhEKAe2E
+/
+/update
+/guess
+user: De femtio dalmatinerna
+	score: 1/7
+user: 2school4cool
+	score: 1/7
+user: Lag syd
+	score: 0/7
+user: Lag 4
+	score: 0/7
+user: 51 dalmatiner
+	score: 1/7
+user: Malinpaavstand
+	score: 0/7
+user: 52 dalmatiner
+	score: 0/7
+Team: Lag 4, answered: 1, on the question: 1
+/guess
+user: De femtio dalmatinerna
+	score: 1/7
+user: 2school4cool
+	score: 1/7
+user: Lag syd
+	score: 0/7
+user: Lag 4
+	score: 0/7
+user: 51 dalmatiner
+	score: 1/7
+user: Malinpaavstand
+	score: 0/7
+user: 52 dalmatiner
+	score: 0/7
+Team: 51 dalmatiner, answered: 2, on the question: 3
+/guess
+user: De femtio dalmatinerna
+	score: 1/7
+user: 2school4cool
+	score: 1/7
+user: Lag syd
+	score: 0/7
+user: Lag 4
+	score: 0/7
+user: 51 dalmatiner
+	score: 1/7
+user: Malinpaavstand
+	score: 0/7
+user: 52 dalmatiner
+	score: 0/7
+Team: Lag syd, answered: 1, on the question: 1
+/
+/update
+/favicon.ico
+/guess
+user: De femtio dalmatinerna
+	score: 1/7
+user: 2school4cool
+	score: 1/7
+user: Lag syd
+	score: 0/7
+user: Lag 4
+	score: 0/7
+user: 51 dalmatiner
+	score: 1/7
+user: Malinpaavstand
+	score: 0/7
+user: 52 dalmatiner
+	score: 0/7
+Team: Lag syd, answered: 1, on the question: 1
+/kAKK2hb2rbFKWhEKAe2E
+/
+/update
+/guess
+user: De femtio dalmatinerna
+	score: 1/7
+user: 2school4cool
+	score: 2/7
+user: Lag syd
+	score: 0/7
+user: Lag 4
+	score: 0/7
+user: 51 dalmatiner
+	score: 1/7
+user: Malinpaavstand
+	score: 0/7
+user: 52 dalmatiner
+	score: 0/7
+Team: 2school4cool, answered: 1, on the question: 3
+/1taVPnWWVm7Petb2VK2h
+/update
+/
+/update
+/1taVPnWWVm7Petb2VK2h
+/
+/update
+/jfaPAe2a7KW2f26FbtZ7
+/
+/update
+/guess
+user: De femtio dalmatinerna
+	score: 1/7
+user: 2school4cool
+	score: 2/7
+user: Lag syd
+	score: 0/7
+user: Lag 4
+	score: 1/7
+user: 51 dalmatiner
+	score: 1/7
+user: Malinpaavstand
+	score: 0/7
+user: 52 dalmatiner
+	score: 0/7
+Team: Lag 4, answered: 1, on the question: 2
+/guess
+user: De femtio dalmatinerna
+	score: 1/7
+user: 2school4cool
+	score: 2/7
+user: Lag syd
+	score: 0/7
+user: Lag 4
+	score: 1/7
+user: 51 dalmatiner
+	score: 2/7
+user: Malinpaavstand
+	score: 0/7
+user: 52 dalmatiner
+	score: 0/7
+Team: 51 dalmatiner, answered: 2, on the question: 4
+/jfaPAe2a7KW2f26FbtZ7
+/
+/update
+/guess
+user: De femtio dalmatinerna
+	score: 1/7
+user: 2school4cool
+	score: 3/7
+user: Lag syd
+	score: 0/7
+user: Lag 4
+	score: 1/7
+user: 51 dalmatiner
+	score: 2/7
+user: Malinpaavstand
+	score: 0/7
+user: 52 dalmatiner
+	score: 0/7
+Team: 2school4cool, answered: 2, on the question: 4
+/guess
+user: De femtio dalmatinerna
+	score: 1/7
+user: 2school4cool
+	score: 3/7
+user: Lag syd
+	score: 1/7
+user: Lag 4
+	score: 1/7
+user: 51 dalmatiner
+	score: 2/7
+user: Malinpaavstand
+	score: 0/7
+user: 52 dalmatiner
+	score: 0/7
+Team: Lag syd, answered: 1, on the question: 2
+/1taVPnWWVm7Petb2VK2h
+/
+/update
+/kAKK2hb2rbFKWhEKAe2E
+/
+/update
+/1fmmb7K2VK2yAeASPK7V
+/
+/update
+/kAKK2hb2rbFKWhEKAe2E
+/
+/update
+/guess
+user: De femtio dalmatinerna
+	score: 1/7
+user: 2school4cool
+	score: 3/7
+user: Lag syd
+	score: 1/7
+user: Lag 4
+	score: 1/7
+user: 51 dalmatiner
+	score: 2/7
+user: Malinpaavstand
+	score: 0/7
+user: 52 dalmatiner
+	score: 0/7
+Team: 51 dalmatiner, answered: 2, on the question: 5
+/guess
+user: De femtio dalmatinerna
+	score: 1/7
+user: 2school4cool
+	score: 3/7
+user: Lag syd
+	score: 1/7
+user: Lag 4
+	score: 1/7
+user: 51 dalmatiner
+	score: 2/7
+user: Malinpaavstand
+	score: 0/7
+user: 52 dalmatiner
+	score: 0/7
+Team: Lag 4, answered: 2, on the question: 3
+/guess
+user: De femtio dalmatinerna
+	score: 1/7
+user: 2school4cool
+	score: 3/7
+user: Lag syd
+	score: 2/7
+user: Lag 4
+	score: 1/7
+user: 51 dalmatiner
+	score: 2/7
+user: Malinpaavstand
+	score: 0/7
+user: 52 dalmatiner
+	score: 0/7
+Team: Lag syd, answered: 1, on the question: 3
+/1fmmb7K2VK2yAeASPK7V
+/
+/update
+/guess
+user: De femtio dalmatinerna
+	score: 1/7
+user: 2school4cool
+	score: 3/7
+user: Lag syd
+	score: 2/7
+user: Lag 4
+	score: 1/7
+user: 51 dalmatiner
+	score: 2/7
+user: Malinpaavstand
+	score: 0/7
+user: 52 dalmatiner
+	score: 0/7
+Team: 2school4cool, answered: 2, on the question: 5
+/Of2VKPe7aAe2w7b2WAe2
+/
+/update
+/jfaPAe2a7KW2f26FbtZ7
+/
+/update
+/guess
+user: De femtio dalmatinerna
+	score: 1/7
+user: 2school4cool
+	score: 3/7
+user: Lag syd
+	score: 2/7
+user: Lag 4
+	score: 1/7
+user: 51 dalmatiner
+	score: 3/7
+user: Malinpaavstand
+	score: 0/7
+user: 52 dalmatiner
+	score: 0/7
+Team: 51 dalmatiner, answered: 1, on the question: 6
+/Of2VKPe7aAe2w7b2WAe2
+/
+/update
+/guess
+user: De femtio dalmatinerna
+	score: 1/7
+user: 2school4cool
+	score: 3/7
+user: Lag syd
+	score: 3/7
+user: Lag 4
+	score: 1/7
+user: 51 dalmatiner
+	score: 3/7
+user: Malinpaavstand
+	score: 0/7
+user: 52 dalmatiner
+	score: 0/7
+Team: Lag syd, answered: 2, on the question: 4
+/jfaPAe2a7KW2f26FbtZ7
+/
+/update
+/favicon.ico
+/guess
+user: De femtio dalmatinerna
+	score: 1/7
+user: 2school4cool
+	score: 4/7
+user: Lag syd
+	score: 3/7
+user: Lag 4
+	score: 1/7
+user: 51 dalmatiner
+	score: 3/7
+user: Malinpaavstand
+	score: 0/7
+user: 52 dalmatiner
+	score: 0/7
+Team: 2school4cool, answered: 1, on the question: 6
+/register
+Added user: Lag4
+/
+/update
+/
+/update
+/favicon.ico
+/jfaPAe2a7KW2f26FbtZ7
+/
+/update
+/highscore
+/
+/update
+/guess
+user: De femtio dalmatinerna
+	score: 1/7
+user: 2school4cool
+	score: 4/7
+user: Lag syd
+	score: 3/7
+user: Lag 4
+	score: 1/7
+user: 51 dalmatiner
+	score: 3/7
+user: Malinpaavstand
+	score: 0/7
+user: 52 dalmatiner
+	score: 0/7
+user: Lag4
+	score: 1/7
+Team: Lag4, answered: 2, on the question: 4
+/highscore
+/
+/update
+/1fmmb7K2VK2yAeASPK7V
+/
+/update
+/guess
+user: De femtio dalmatinerna
+	score: 1/7
+user: 2school4cool
+	score: 4/7
+user: Lag syd
+	score: 3/7
+user: Lag 4
+	score: 1/7
+user: 51 dalmatiner
+	score: 3/7
+user: Malinpaavstand
+	score: 0/7
+user: 52 dalmatiner
+	score: 0/7
+user: Lag4
+	score: 1/7
+Team: Lag syd, answered: 1, on the question: 5
+/guess
+user: De femtio dalmatinerna
+	score: 1/7
+user: 2school4cool
+	score: 4/7
+user: Lag syd
+	score: 3/7
+user: Lag 4
+	score: 1/7
+user: 51 dalmatiner
+	score: 3/7
+user: Malinpaavstand
+	score: 0/7
+user: 52 dalmatiner
+	score: 0/7
+user: Lag4
+	score: 1/7
+Team: Lag syd, answered: 1, on the question: 5
+/guess
+user: De femtio dalmatinerna
+	score: 1/7
+user: 2school4cool
+	score: 4/7
+user: Lag syd
+	score: 3/7
+user: Lag 4
+	score: 1/7
+user: 51 dalmatiner
+	score: 3/7
+user: Malinpaavstand
+	score: 0/7
+user: 52 dalmatiner
+	score: 0/7
+user: Lag4
+	score: 1/7
+Team: Lag syd, answered: 1, on the question: 5
+/1fmmb7K2VK2yAeASPK7V
+/
+/update
+/Of2VKPe7aAe2w7b2WAe2
+/
+/update
+/guess
+user: De femtio dalmatinerna
+	score: 1/7
+user: 2school4cool
+	score: 4/7
+user: Lag syd
+	score: 4/7
+user: Lag 4
+	score: 1/7
+user: 51 dalmatiner
+	score: 3/7
+user: Malinpaavstand
+	score: 0/7
+user: 52 dalmatiner
+	score: 0/7
+user: Lag4
+	score: 1/7
+Team: Lag syd, answered: 1, on the question: 6
+/guess
+user: De femtio dalmatinerna
+	score: 1/7
+user: 2school4cool
+	score: 4/7
+user: Lag syd
+	score: 4/7
+user: Lag 4
+	score: 1/7
+user: 51 dalmatiner
+	score: 3/7
+user: Malinpaavstand
+	score: 0/7
+user: 52 dalmatiner
+	score: 0/7
+user: Lag4
+	score: 2/7
+Team: Lag4, answered: X, on the question: 5
+/highscore
+/
+/update
+/Of2VKPe7aAe2w7b2WAe2
+/
+/update
+/guess
+user: De femtio dalmatinerna
+	score: 1/7
+user: 2school4cool
+	score: 4/7
+user: Lag syd
+	score: 4/7
+user: Lag 4
+	score: 1/7
+user: 51 dalmatiner
+	score: 3/7
+user: Malinpaavstand
+	score: 0/7
+user: 52 dalmatiner
+	score: 0/7
+user: Lag4
+	score: 3/7
+Team: Lag4, answered: 1, on the question: 6
+/highscore
+/
+/update
+/update
+/highscore
+/update
+/
